@@ -32,13 +32,13 @@ conda activate audiosr
 3. **Clone this repository to your local machine:**
 
 ```sh
-git clone https://github.com/ORI-Muchim/audiosr_upsampling.git
+git clone https://github.com/ORI-Muchim/AudioSR-Upsampling.git
 ```
 
 4. **Navigate to the cloned directory:**
 
 ```sh
-cd audiosr_upsampling
+cd AudioSR-Upsampling
 ```
 
 5. **Install the necessary dependencies:**
@@ -57,7 +57,7 @@ Place the audio files as follows.
 You must write '[language code]' on the back of the speaker folder.
 
 ```
-audiosr_upsampling
+AudioSR-Upsampling
 ├────datasets
 │       ├───speaker0
 │       │   ├────1.mp3
