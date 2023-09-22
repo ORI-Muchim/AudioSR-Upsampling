@@ -8,14 +8,13 @@ Work on all types of audio (e.g., music, speech, dog, raining, ...) & all sampli
 
 [Original Repo](https://github.com/haoheliu/versatile_audio_super_resolution)
 
----
 
 ## Table of Contents 
 - [Installation](#installation)
 - [Prepare_Datasets](#prepare_datasets)
 - [Usage](#usage)
+- [Reference](#reference)
 
----
 
 ## Installation 
 1. **Create an Anaconda environment:**
@@ -48,7 +47,6 @@ cd audiosr_upsampling
 pip install -r requirements.txt
 ```
 
----
 
 ## Prepare_Datasets
 
@@ -81,10 +79,13 @@ This is just an example, and it's okay to add more speakers.
 
 ### When you put audio datasets in one folder, please unify all the extensions into one!
 
----
 
 ## Usage
 
 ```sh
 python main.py
 ```
+
+## Reference
+
+Thank you to [falsewinnet](https://github.com/falseywinchnet) for creating `./audiosr/__main__.py`.
