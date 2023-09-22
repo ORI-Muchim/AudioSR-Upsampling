@@ -77,7 +77,7 @@ audiosr_upsampling
 
 This is just an example, and it's okay to add more speakers.
 
-### When you put audio datasets in one folder, please unify all the extensions into one!
+### When you put audio datasets in one folder, please unify all the extensions into one.
 
 
 ## Usage
