@@ -89,3 +89,13 @@ python main.py
 ## Reference
 
 Thank you to [falsewinnet](https://github.com/falseywinchnet) for creating `./audiosr/__main__.py`.
+
+
+If you find this repo useful, please consider citing: 
+```bibtex
+@article{liu2023audiosr,
+  title={{AudioSR}: Versatile Audio Super-resolution at Scale},
+  author={Liu, Haohe and Chen, Ke and Tian, Qiao and Wang, Wenwu and Plumbley, Mark D},
+  journal={arXiv preprint arXiv:2309.07314},
+  year={2023}
+}
