@@ -27,7 +27,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Perform super-resolution on audio files using audiosr package.')
+    parser = argparse.ArgumentParser(description='Perform Upsampling an audio files using audiosr package.')
 
     parser.add_argument('-i', '--input_path', required=True, help='Path to the input waveform file.')
     parser.add_argument('-s', '--save_path', required=True, help='Path to save the output waveform file.')
