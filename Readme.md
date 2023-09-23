@@ -54,8 +54,6 @@ Place the audio files as follows.
 
 .mp3 or .wav files are okay. 
 
-You must write '[language code]' on the back of the speaker folder.
-
 ```
 AudioSR-Upsampling
 ├────datasets
