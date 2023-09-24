@@ -2,7 +2,9 @@ import os
 import shutil
 import subprocess
 import json
+import tempfile
 from audiosr import build_model, super_resolution, save_wave
+
 
 def get_sample_rate(file_path):
     command = [
@@ -17,6 +19,37 @@ def get_sample_rate(file_path):
     output = json.loads(result.stdout)
     return int(output['streams'][0]['sample_rate'])
 
+
+
+def get_duration(file_location):
+    command = [
+        'ffprobe',
+        '-v', 'error',
+        '-select_streams', 'a:0',
+        '-show_entries', 'format=duration',
+        '-sexagesimal',
+        '-of', 'json',
+        file_location
+    ]
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output = json.loads(result.stdout)
+    return output['format']['duration']
+
+
+def remove_silence(duration, input_path, output_path):
+    command = [
+        'ffmpeg',
+        '-ss', '00:00:00',
+        '-i', input_path,
+        '-t', duration,
+        '-c', 'copy',
+        output_path
+    ]
+    subprocess.run(command)
+    os.remove(input_path)
+
+
+tmp_dir = tempfile.gettempdir()
 datasets_path = './datasets/'
 speakers = [d for d in os.listdir(datasets_path) if os.path.isdir(os.path.join(datasets_path, d))]
 audiosr = build_model(model_name='speech', device="auto")
@@ -60,6 +93,8 @@ for speaker in speakers:
     for file in source_wavs_files:
         if file.endswith('.wav'):
             input_path = os.path.join(source_wavs_folder, file)
+            input_filename = os.path.basename(input_path)
+            duration = get_duration(input_path)
             save_path = os.path.join(wavs_folder)
             try:
                 waveform = super_resolution(
@@ -71,6 +106,8 @@ for speaker in speakers:
                     latent_t_per_second=12.8
                 )
                 base_name, _ = os.path.splitext(file)
-                save_wave(waveform, save_path, name=base_name, samplerate=48000)
+                save_wave(waveform, tmp_dir, name=base_name, samplerate=48000)
+                remove_silence(duration, f'{tmp_dir}\\{input_filename}', f'{save_path}\\{input_filename}')
+
             except Exception as e:
                 print(f"An error occurred: {e}")
