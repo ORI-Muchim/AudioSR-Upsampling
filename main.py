@@ -108,7 +108,6 @@ for speaker in speakers:
                 base_name, _ = os.path.splitext(file)
                 tmp_file_path = os.path.join(tmp_dir, f"{base_name}.wav")
                 save_wave(waveform, tmp_dir, name=base_name, samplerate=48000)
-                remove_silence(duration, f'{tmp_dir}\\{input_filename}', f'{save_path}\\{input_filename}')
                 remove_silence(duration, tmp_file_path, os.path.join(save_path, input_filename))
 
             except Exception as e:
