@@ -86,7 +86,8 @@ python main.py
 
 ## Reference
 
-Thank you to [falsewinnet](https://github.com/falseywinchnet) for creating `./audiosr/__main__.py`.
+Thank you for [falsewinnet](https://github.com/falseywinchnet) for helping me create `./audiosr/__main__.py`.
+
 
 
 If you find this repo useful, please consider citing: 
